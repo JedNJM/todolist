@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Lists from "./Components/Lists";
+import "./App.css";
+import Addtask from "./Components/Addtask";
 function App() {
+  const tasks = [
+    { name: "Study", description: "Studying react", done: true },
+    { name: "Sleep", description: "Sleeping", done: false },
+    { name: "Eat", description: "Eating", done: false },
+    { name: "Play", description: "Playing", done: false },
+    { name: "Work", description: "Working", done: false },
+    { name: "Study", description: "Studying react", done: true },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div style={{ backgroundColor: "azure" }}>
+        <div className="App">
+          <Addtask/>
+          {tasks.map((el) => (
+            <Lists task={el.name} description={el.description} done={el.done} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 
